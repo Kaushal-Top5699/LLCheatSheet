@@ -113,3 +113,25 @@ class LinkedList:
             prev = current
             current = next_node
         self.head = prev
+
+    def search(self, val):
+        if self.head == None:
+            return None
+        else:
+            temp = self.head
+            while temp != None:
+                if temp.value == val:
+                    return temp.value
+                temp = temp.next
+            return None
+    
+    def update_at(self, index, val):
+        if self.head == None or index < 0 or index >= self.length:
+            return None
+        counter = 0
+        temp = self.head
+        while temp != None and counter != index:
+            temp = temp.next
+            counter += 1
+        temp.value = val
+        return temp.value
